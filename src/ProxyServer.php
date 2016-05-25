@@ -76,7 +76,7 @@ class ProxyServer
 
             $headers[] = 'X-Proxy: http';
             
-            curl_setopt($curl, CURLOPT_URL, $request->getUri()->__toString());
+            curl_setopt($curl, CURLOPT_URL, $request->getUrl()->__toString());
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($curl, CURLOPT_HEADER, true);

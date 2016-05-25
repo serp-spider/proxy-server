@@ -26,17 +26,10 @@
     }
   },
 
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/serp-spider/react-http.git"
-    }
-  ],
-
   "require": {
     "php": ">=5.5.9",
     "clue/socks-react": "^0.4.0",
-    "serps/react-http": "dev-master#db0483d24a6a8e13c1f8d61907313a4f8187891f"
+    "react/http": "dev-master#b888423ea0ee65e89868c677b97f03bc66b176ae"
   },
 
   "require-dev":{
