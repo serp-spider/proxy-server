@@ -6,6 +6,8 @@ Usage
 
 
 ```php
+use Serps\ProxyServer\ProxyServer;
+
 $server = new ProxyServer();
 
 // Adds a SOCKS4 proxy server listening on localhost:20104
