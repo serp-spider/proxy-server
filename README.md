@@ -14,7 +14,7 @@ $server = new ProxyServer();
 $server->listenSocks4(20104, 'localhost');
 // Adds a SOCKS5 proxy server listening on localhost:20105
 $server->listenSocks5(20105, 'localhost');
-// Adds a HTTP proxy server listening on localhost:20105
+// Adds a HTTP proxy server listening on localhost:20106
 $server->listenHttp(20106, 'localhost');
 
 // Starts all servers
