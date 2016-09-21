@@ -83,13 +83,36 @@ class ProxyServer
             curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
             $data = curl_exec($curl);
 
-            list($headers, $body) = explode("\r\n\r\n", $data, 2);
+            $parsedData = $this->parseResponse($data);
 
-            $response->writeHead(200);
-            $response->end($body);
+            $response->writeHead($parsedData['code'], $parsedData['headers']);
+            $response->end($parsedData['body']);
+
         });
 
         $socket->listen($port, $host);
+    }
+
+    private function parseResponse($response){
+
+        list($headers, $body) = explode("\r\n\r\n", $response, 2);
+
+        $responseData = [
+            'body' => $body,
+            'code' => null,
+            'headers' => []
+        ];
+
+        foreach (explode("\r\n", $headers) as $i => $line) {
+            if ($i === 0) {
+                $responseData['code'] = explode(' ', $line)[1];
+            } else {
+                list ($key, $value) = explode(': ', $line);
+                $responseData['headers'][$key] = $value;
+            }
+        }
+
+        return $responseData;
     }
 
     /**
