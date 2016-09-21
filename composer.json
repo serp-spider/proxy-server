@@ -29,7 +29,7 @@
   "require": {
     "php": ">=5.5.9",
     "clue/socks-react": "^0.4.0",
-    "react/http": "dev-master#b888423ea0ee65e89868c677b97f03bc66b176ae"
+    "react/http": "dev-streaming-multipart#b888423ea0ee65e89868c677b97f03bc66b176ae"
   },
 
   "require-dev":{
